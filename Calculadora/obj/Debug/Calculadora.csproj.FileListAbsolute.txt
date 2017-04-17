@@ -1,0 +1,36 @@
+D:\Calculadora\Calculadora\bin\Debug\Calculadora.exe.config
+D:\Calculadora\Calculadora\bin\Debug\Calculadora.exe
+D:\Calculadora\Calculadora\bin\Debug\Calculadora.pdb
+D:\Calculadora\Calculadora\obj\Debug\Calculadora.csprojResolveAssemblyReference.cache
+D:\Calculadora\Calculadora\obj\Debug\Calculadora.frmCalculadora.resources
+D:\Calculadora\Calculadora\obj\Debug\Calculadora.Properties.Resources.resources
+D:\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.GenerateResource.Cache
+D:\Calculadora\Calculadora\obj\Debug\Calculadora.exe
+D:\Calculadora\Calculadora\obj\Debug\Calculadora.pdb
+C:\Users\Wellington\Google Drive\Organizar\Calculadora\Calculadora\bin\Debug\Calculadora.exe.config
+C:\Users\Wellington\Google Drive\Organizar\Calculadora\Calculadora\obj\Debug\Calculadora.exe
+C:\Users\Wellington\Google Drive\Organizar\Calculadora\Calculadora\obj\Debug\Calculadora.pdb
+C:\Users\Wellington\Google Drive\Organizar\Calculadora\Calculadora\bin\Debug\Calculadora.exe
+C:\Users\Wellington\Google Drive\Organizar\Calculadora\Calculadora\bin\Debug\Calculadora.pdb
+C:\Users\Wellington\Google Drive\Organizar\Calculadora\Calculadora\obj\Debug\Calculadora.csprojResolveAssemblyReference.cache
+C:\Users\Wellington\Google Drive\Organizar\Calculadora\Calculadora\obj\Debug\Calculadora.frmCalculadora.resources
+C:\Users\Wellington\Google Drive\Organizar\Calculadora\Calculadora\obj\Debug\Calculadora.Properties.Resources.resources
+C:\Users\Wellington\Google Drive\Organizar\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.GenerateResource.Cache
+C:\Users\Wellington\Desktop\Calculadora - Cópia\Calculadora\bin\Debug\Calculadora.exe.config
+C:\Users\Wellington\Desktop\Calculadora - Cópia\Calculadora\obj\Debug\Calculadora.exe
+C:\Users\Wellington\Desktop\Calculadora - Cópia\Calculadora\obj\Debug\Calculadora.pdb
+C:\Users\Wellington\Desktop\Calculadora - Cópia\Calculadora\bin\Debug\Calculadora.exe
+C:\Users\Wellington\Desktop\Calculadora - Cópia\Calculadora\bin\Debug\Calculadora.pdb
+C:\Users\Wellington\Desktop\Calculadora - Cópia\Calculadora\obj\Debug\Calculadora.csprojResolveAssemblyReference.cache
+C:\Users\Wellington\Desktop\Calculadora - Cópia\Calculadora\obj\Debug\Calculadora.frmCalculadora.resources
+C:\Users\Wellington\Desktop\Calculadora - Cópia\Calculadora\obj\Debug\Calculadora.Properties.Resources.resources
+C:\Users\Wellington\Desktop\Calculadora - Cópia\Calculadora\obj\Debug\Calculadora.csproj.GenerateResource.Cache
+C:\Users\Wellington\Desktop\Calculadora\Calculadora\bin\Debug\Calculadora.exe.config
+C:\Users\Wellington\Desktop\Calculadora\Calculadora\obj\Debug\Calculadora.exe
+C:\Users\Wellington\Desktop\Calculadora\Calculadora\obj\Debug\Calculadora.pdb
+C:\Users\Wellington\Desktop\Calculadora\Calculadora\bin\Debug\Calculadora.exe
+C:\Users\Wellington\Desktop\Calculadora\Calculadora\bin\Debug\Calculadora.pdb
+C:\Users\Wellington\Desktop\Calculadora\Calculadora\obj\Debug\Calculadora.csprojResolveAssemblyReference.cache
+C:\Users\Wellington\Desktop\Calculadora\Calculadora\obj\Debug\Calculadora.frmCalculadora.resources
+C:\Users\Wellington\Desktop\Calculadora\Calculadora\obj\Debug\Calculadora.Properties.Resources.resources
+C:\Users\Wellington\Desktop\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.GenerateResource.Cache
