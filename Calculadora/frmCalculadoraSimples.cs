@@ -15,7 +15,8 @@ namespace Calculadora
     {
         string visor        = "0"; // Recebe o número informado
         char operacaoAtual; // Recebe a operação que o usuário informar        
-
+	
+	//Este é um teste para o Git
         bool operacaoUso    = false; // Recebe tru se uma operação for executada
         bool operacaoUso1   = false;
         bool operacaoUso2   = false;
