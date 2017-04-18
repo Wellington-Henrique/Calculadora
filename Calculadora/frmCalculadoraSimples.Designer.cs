@@ -30,7 +30,6 @@
         {
             this.lblVisor = new System.Windows.Forms.Label();
             this.btnMMostra = new System.Windows.Forms.Button();
-            this.btnDesliga = new System.Windows.Forms.Button();
             this.btnMMais = new System.Windows.Forms.Button();
             this.btnMMenos = new System.Windows.Forms.Button();
             this.btnRaiz = new System.Windows.Forms.Button();
@@ -56,6 +55,7 @@
             this.btnCorrige = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnXYPotencia = new System.Windows.Forms.Button();
+            this.btnDesliga = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblVisor
@@ -79,18 +79,6 @@
             this.btnMMostra.Text = "MR";
             this.btnMMostra.UseVisualStyleBackColor = true;
             this.btnMMostra.Click += new System.EventHandler(this.btnMMostra_Click);
-            // 
-            // btnDesliga
-            // 
-            this.btnDesliga.BackColor = System.Drawing.Color.Firebrick;
-            this.btnDesliga.Font = new System.Drawing.Font("Century Gothic", 7F);
-            this.btnDesliga.ForeColor = System.Drawing.Color.Black;
-            this.btnDesliga.Location = new System.Drawing.Point(174, 75);
-            this.btnDesliga.Name = "btnDesliga";
-            this.btnDesliga.Size = new System.Drawing.Size(35, 29);
-            this.btnDesliga.TabIndex = 1;
-            this.btnDesliga.Text = "OFF";
-            this.btnDesliga.UseVisualStyleBackColor = false;
             // 
             // btnMMais
             // 
@@ -358,15 +346,26 @@
             // 
             // btnXYPotencia
             // 
-            this.btnXYPotencia.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnXYPotencia.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.btnXYPotencia.Location = new System.Drawing.Point(51, 109);
             this.btnXYPotencia.Name = "btnXYPotencia";
             this.btnXYPotencia.Size = new System.Drawing.Size(35, 29);
             this.btnXYPotencia.TabIndex = 1;
-            this.btnXYPotencia.Text = "X";
+            this.btnXYPotencia.Text = "X^y";
             this.btnXYPotencia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnXYPotencia.UseVisualStyleBackColor = true;
             this.btnXYPotencia.Click += new System.EventHandler(this.btnXYPotencia_Click);
+            // 
+            // btnDesliga
+            // 
+            this.btnDesliga.Font = new System.Drawing.Font("Century Gothic", 7F);
+            this.btnDesliga.Location = new System.Drawing.Point(174, 75);
+            this.btnDesliga.Name = "btnDesliga";
+            this.btnDesliga.Size = new System.Drawing.Size(35, 29);
+            this.btnDesliga.TabIndex = 1;
+            this.btnDesliga.Text = "OFF";
+            this.btnDesliga.UseVisualStyleBackColor = true;
+            this.btnDesliga.Click += new System.EventHandler(this.btnMMenos_Click);
             // 
             // frmCalculadora
             // 
@@ -389,6 +388,7 @@
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btnXYPotencia);
             this.Controls.Add(this.btnCorrige);
+            this.Controls.Add(this.btnDesliga);
             this.Controls.Add(this.btnMMenos);
             this.Controls.Add(this.btn5);
             this.Controls.Add(this.btn0);
@@ -398,7 +398,6 @@
             this.Controls.Add(this.btnMMais);
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.btn7);
-            this.Controls.Add(this.btnDesliga);
             this.Controls.Add(this.btnMLimpa);
             this.Controls.Add(this.btnMMostra);
             this.Controls.Add(this.lblVisor);
@@ -412,7 +411,6 @@
 
         private System.Windows.Forms.Label lblVisor;
         private System.Windows.Forms.Button btnMMostra;
-        private System.Windows.Forms.Button btnDesliga;
         private System.Windows.Forms.Button btnMMais;
         private System.Windows.Forms.Button btnMMenos;
         private System.Windows.Forms.Button btnRaiz;
@@ -438,6 +436,7 @@
         private System.Windows.Forms.Button btnCorrige;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnXYPotencia;
+        private System.Windows.Forms.Button btnDesliga;
     }
 }
 

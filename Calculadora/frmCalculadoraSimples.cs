@@ -43,8 +43,8 @@ namespace Calculadora
 
             if (operacaoUso == true || visor.Equals("0"))
             {
-                operacaoUso = false; // Recebe false quando um valor numérico for clicado
-                //operacaoUso2 = true;
+                operacaoUso = false; // Recebe false quando um valor numérico for clicado  
+                operacaoUso2 = false;             
                 visor = "";
                 lblVisor.Text = "";
             }
@@ -99,7 +99,7 @@ namespace Calculadora
             pressBotaoNumero('9');
         }
 
-        // Cria um valor com ponto.
+        // Cria um valor decimal.
         private void btnPonto_Click(object sender, EventArgs e)
         {
             TestaOperacaoLimpaVisor();
@@ -117,7 +117,7 @@ namespace Calculadora
             }
         }
 
-        // Efetua as funções.
+        // Efetua os cálculos.
         public void executaOperacao()
         {
             if (operacaoUso2 == false)
@@ -131,7 +131,8 @@ namespace Calculadora
                     num1 = double.Parse(lblVisor.Text);
 
                 operacaoUso2 = true;
-            }            
+            }
+                            
             operacaoUso1 = true; // Fará com que a variável num2 receba os valores após a primeira execução
             operacaoUso = true; // Recebe true toda vez que uma operação é chamada
             pontoUso = false;
@@ -140,9 +141,8 @@ namespace Calculadora
         // Define o tipo da operação a ser usada.
         public void pressBotaoFuncao(char funcao)
         {
-            //TestaOperacaoLimpaVisor();
-            operacaoAtual = funcao;
             executaOperacao();
+            operacaoAtual = funcao;
         }
         private void btnSoma_Click(object sender, EventArgs e)
         {
@@ -177,10 +177,10 @@ namespace Calculadora
             pressBotaoFuncao('p');
         }
 
-        // Para que não haja replicação de código.
+        // Funções disponíveis para cálculo
         private double funcoes()
         {
-            erro = false;
+            erro = false; // Usada caso seja efetuada um adivisão por zero
 
             switch (operacaoAtual)
             {
@@ -252,7 +252,7 @@ namespace Calculadora
                 lblVisor.Text = visor;
             }
         }
-        
+
         // Funções da memória.
         public void memoria()
         {           
