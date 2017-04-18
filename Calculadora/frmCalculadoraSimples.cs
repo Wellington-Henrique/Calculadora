@@ -196,7 +196,7 @@ namespace Calculadora
                     break; // Divide
                 case '-': result = num1 - num2; break; // Subtrai
                 case '*': result = num1 * num2; break; // Multiplica
-                case '%': result = num2 > 0 ? num1 * num2 / 100 : 0; break; // Efeua a porcentagem
+                case '%': result = num2 > 0 ? num1 * num2 / 100 : 0; break; // Efetua a porcentagem
                 case '^': result = Math.Pow(num1, 2); break; // Eleva um número a dois
                 case 'r': result = Math.Sqrt(num1); break; // raiz quadrada
                 case 'p': result = Math.Pow(num1, num2); break; // Eleva um número a outro
@@ -252,11 +252,9 @@ namespace Calculadora
 
             num1            = 0;
             num2            = 0;
-            result          = 0;            
-            memoResult      = 0;
-            memoResult1     = 0;
+            result          = 0;
         }
-        // Apaga o último número digitado.
+        // Apaga o último número digitado (backsapce).
         private void btnCorrige_Click(object sender, EventArgs e)
         {
             if (operacaoUso == false)
@@ -271,31 +269,37 @@ namespace Calculadora
 
         // Funções da memória.
         public void memoria()
-        {           
+        {
+            lblMemoria.Text = "M";
+
             if (operacaoUso1 == true)
             {
                 num2 = double.Parse(lblVisor.Text);
+  
                 memoResult = funcoes();
 
-                if (erro == true)
+                operacaoUso = true;
+
+                if (erro == false)
                 {
-                    operacaoUso = true;
-                    visor = Convert.ToString(memoResult);
+                    lblVisor.Text = Convert.ToString(memoResult);
                 }
                 else
-                    visor = "ERROR";             
-                    
-                lblVisor.Text = Convert.ToString(visor);
+                    lblVisor.Text = "ERROR";
+            }else
+            {
+                memoResult1 = num1;
             }
         }
         private void btnMLimpa_Click(object sender, EventArgs e)
         {
             memoResult = 0;
             memoResult1 = 0;
+            lblMemoria.Text = null;
         }
         private void btnMMostra_Click(object sender, EventArgs e)
         {
-            lblVisor.Text = Convert.ToString(memoResult);
+            lblVisor.Text = Convert.ToString(memoResult1);
             operacaoUso = true;
         }
         private void btnMMais_Click(object sender, EventArgs e)
@@ -307,6 +311,58 @@ namespace Calculadora
         {
             memoria();
             memoResult1 -= memoResult;
+        }
+
+        private void keypressNumeros(object sender, KeyPressEventArgs e)
+        {
+            int botao;
+
+            botao = e.KeyChar;
+            switch (botao)
+            {
+                case 42:
+                    pressBotaoFuncao('*');
+                    break;
+                case 43:
+                    pressBotaoFuncao('+');
+                    break;
+                case 45:
+                    pressBotaoFuncao('-');
+                    break;
+                case 46:
+                    pressBotaoFuncao('/');
+                    break;
+                case 48:
+                    pressBotaoNumero('0');
+                    break;
+                case 49:
+                    pressBotaoNumero('1');
+                    break;
+                case 50:
+                    pressBotaoNumero('2');
+                    break;
+                case 51:
+                    pressBotaoNumero('3');
+                    break;
+                case 52:
+                    pressBotaoNumero('4');
+                    break;
+                case 53:
+                    pressBotaoNumero('5');
+                    break;
+                case 54:
+                    pressBotaoNumero('6');
+                    break;
+                case 55:
+                    pressBotaoNumero('7');
+                    break;
+                case 56:
+                    pressBotaoNumero('8');
+                    break;
+                case 57:
+                    pressBotaoNumero('9');
+                    break;
+            }
         }
     }
 }

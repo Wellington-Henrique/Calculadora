@@ -57,6 +57,7 @@
             this.btnXYPotencia = new System.Windows.Forms.Button();
             this.btnDesliga = new System.Windows.Forms.Button();
             this.btnFatorial = new System.Windows.Forms.Button();
+            this.lblMemoria = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblVisor
@@ -379,6 +380,16 @@
             this.btnFatorial.UseVisualStyleBackColor = true;
             this.btnFatorial.Click += new System.EventHandler(this.btnFatorial_Click);
             // 
+            // lblMemoria
+            // 
+            this.lblMemoria.BackColor = System.Drawing.Color.Transparent;
+            this.lblMemoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMemoria.Location = new System.Drawing.Point(12, 44);
+            this.lblMemoria.Name = "lblMemoria";
+            this.lblMemoria.Size = new System.Drawing.Size(19, 11);
+            this.lblMemoria.TabIndex = 0;
+            this.lblMemoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmCalculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,10 +424,13 @@
             this.Controls.Add(this.btn7);
             this.Controls.Add(this.btnMLimpa);
             this.Controls.Add(this.btnMMostra);
+            this.Controls.Add(this.lblMemoria);
             this.Controls.Add(this.lblVisor);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "frmCalculadora";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keypressNumeros);
             this.ResumeLayout(false);
 
         }
@@ -452,6 +466,7 @@
         private System.Windows.Forms.Button btnXYPotencia;
         private System.Windows.Forms.Button btnDesliga;
         private System.Windows.Forms.Button btnFatorial;
+        private System.Windows.Forms.Label lblMemoria;
     }
 }
 
