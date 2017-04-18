@@ -176,6 +176,10 @@ namespace Calculadora
         {
             pressBotaoFuncao('p');
         }
+        private void btnFatorial_Click(object sender, EventArgs e)
+        {
+            pressBotaoFuncao('f');
+        }
 
         // Funções disponíveis para cálculo
         private double funcoes()
@@ -185,13 +189,25 @@ namespace Calculadora
             switch (operacaoAtual)
             {
                 case '+': result = num1 + num2; break; // Soma
-                case '/': if (num2 != 0) result = num1 / num2; else erro = true; break; // Divide
+                case '/':
+                    if (num2 != 0)
+                        result = num1 / num2;
+                    else erro = true;
+                    break; // Divide
                 case '-': result = num1 - num2; break; // Subtrai
                 case '*': result = num1 * num2; break; // Multiplica
                 case '%': result = num2 > 0 ? num1 * num2 / 100 : 0; break; // Efeua a porcentagem
                 case '^': result = Math.Pow(num1, 2); break; // Eleva um número a dois
                 case 'r': result = Math.Sqrt(num1); break; // raiz quadrada
                 case 'p': result = Math.Pow(num1, num2); break; // Eleva um número a outro
+                case 'f':
+                    result = 1;
+                    if (num2 > 0)
+                    {
+                        for (int i = 1; i <= num2; i++)
+                            result = result * i;
+                    }
+                    break;
             }
             
             // Imprime mensagem de erro caso seja efetuada divisão por zero, caso contrário o valor de result.
