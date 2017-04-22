@@ -13,23 +13,22 @@ namespace Calculadora
 {
     public partial class frmCalculadora : Form
     {
-        string visor        = "0"; // Recebe o número informado
-        char operacaoAtual; // Recebe a operação que o usuário informar        
-	
-	//Este é um teste para o Git
-        bool operacaoUso    = false; // Recebe tru se uma operação for executada
-        bool operacaoUso1   = false;
-        bool operacaoUso2   = false;
-        bool pontoUso       = false;
-        bool igualClique    = false;
-        bool erro           = false;
+        string visor = "0"; // Recebe o número informado
+        char operacaoAtual; // Recebe a operação que o usuário informar
 
-        double num1         = 0;
-        double num2         = 0;
-        double result       = 0;
-        double memoResult   = 0;
-        double memoResult1  = 0;
-        
+        bool operacaoUso = false; // Recebe true se uma operação for executada
+        bool operacaoUso1 = false;
+        bool operacaoUso2 = false;
+        bool pontoUso = false;
+        bool igualClique = false;
+        bool erro = false; // Recebe true se tentar uma divisão por zero
+
+        double num1 = 0;
+        double num2 = 0;
+        double result = 0;
+        double memoResult = 0;
+        double memoResult1 = 0;
+
         // Chamada do form.
         public frmCalculadora()
         {
@@ -44,7 +43,7 @@ namespace Calculadora
             if (operacaoUso == true || visor.Equals("0"))
             {
                 operacaoUso = false; // Recebe false quando um valor numérico for clicado  
-                operacaoUso2 = false;             
+                operacaoUso2 = false;
                 visor = "";
                 lblVisor.Text = "";
             }
@@ -57,6 +56,59 @@ namespace Calculadora
             visor = lblVisor.Text;
             visor = visor + numero_botao;
             lblVisor.Text = Convert.ToString(visor);
+        }
+
+        // Habilita o uso do Num Lock
+        private void keypressNumeros(object sender, KeyPressEventArgs e)
+        {
+            int botao;
+
+            botao = e.KeyChar;
+            switch (botao)
+            {
+                case 42:
+                    pressBotaoFuncao('*');
+                    break;
+                case 43:
+                    pressBotaoFuncao('+');
+                    break;
+                case 45:
+                    pressBotaoFuncao('-');
+                    break;
+                case 46:
+                    pressBotaoFuncao('/');
+                    break;
+                case 48:
+                    pressBotaoNumero('0');
+                    break;
+                case 49:
+                    pressBotaoNumero('1');
+                    break;
+                case 50:
+                    pressBotaoNumero('2');
+                    break;
+                case 51:
+                    pressBotaoNumero('3');
+                    break;
+                case 52:
+                    pressBotaoNumero('4');
+                    break;
+                case 53:
+                    pressBotaoNumero('5');
+                    break;
+                case 54:
+                    pressBotaoNumero('6');
+                    break;
+                case 55:
+                    pressBotaoNumero('7');
+                    break;
+                case 56:
+                    pressBotaoNumero('8');
+                    break;
+                case 57:
+                    pressBotaoNumero('9');
+                    break;
+            }
         }
         private void btn0_Click(object sender, EventArgs e)
         {
@@ -132,7 +184,7 @@ namespace Calculadora
 
                 operacaoUso2 = true;
             }
-                            
+
             operacaoUso1 = true; // Fará com que a variável num2 receba os valores após a primeira execução
             operacaoUso = true; // Recebe true toda vez que uma operação é chamada
             pontoUso = false;
@@ -146,7 +198,7 @@ namespace Calculadora
         }
         private void btnSoma_Click(object sender, EventArgs e)
         {
-            pressBotaoFuncao('+');            
+            pressBotaoFuncao('+');
         }
         private void btnDivide_Click(object sender, EventArgs e)
         {
@@ -180,6 +232,10 @@ namespace Calculadora
         {
             pressBotaoFuncao('f');
         }
+        private void btnXRaizY_Click(object sender, EventArgs e)
+        {
+            pressBotaoFuncao('R');
+        }
 
         // Funções disponíveis para cálculo
         private double funcoes()
@@ -208,8 +264,9 @@ namespace Calculadora
                             result = result * i;
                     }
                     break;
+                case 'R': result = Math.Pow(num1, 1 / num2); break;
             }
-            
+
             // Imprime mensagem de erro caso seja efetuada divisão por zero, caso contrário o valor de result.
             lblVisor.Text = erro == true ? "ERROR" : lblVisor.Text = Convert.ToString(result);
 
@@ -234,25 +291,25 @@ namespace Calculadora
                 num1 = double.Parse(lblVisor.Text);
 
             operacaoUso = true;
-            operacaoUso1 = true;
+            operacaoUso1 = false;
             pontoUso = false;
         }
         // Limpa as variáveis da calculadora.
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            lblVisor.Text   = "0";
-            visor           = "0";
-            operacaoAtual   = 'x';
+            lblVisor.Text = "0";
+            visor = "0";
+            operacaoAtual = ' ';
 
-            operacaoUso     = false;
-            operacaoUso1    = false;
-            operacaoUso2    = false;
-            igualClique     = false;
-            pontoUso        = false;
+            operacaoUso = false;
+            operacaoUso1 = false;
+            operacaoUso2 = false;
+            igualClique = false;
+            pontoUso = false;
 
-            num1            = 0;
-            num2            = 0;
-            result          = 0;
+            num1 = 0;
+            num2 = 0;
+            result = 0;
         }
         // Apaga o último número digitado (backsapce).
         private void btnCorrige_Click(object sender, EventArgs e)
@@ -271,25 +328,7 @@ namespace Calculadora
         public void memoria()
         {
             lblMemoria.Text = "M";
-
-            if (operacaoUso1 == true)
-            {
-                num2 = double.Parse(lblVisor.Text);
-  
-                memoResult = funcoes();
-
-                operacaoUso = true;
-
-                if (erro == false)
-                {
-                    lblVisor.Text = Convert.ToString(memoResult);
-                }
-                else
-                    lblVisor.Text = "ERROR";
-            }else
-            {
-                memoResult1 = num1;
-            }
+            memoResult = double.Parse(lblVisor.Text);
         }
         private void btnMLimpa_Click(object sender, EventArgs e)
         {
@@ -299,70 +338,51 @@ namespace Calculadora
         }
         private void btnMMostra_Click(object sender, EventArgs e)
         {
-            lblVisor.Text = Convert.ToString(memoResult1);
-            operacaoUso = true;
+            lblVisor.Text = Convert.ToString(memoResult);
         }
         private void btnMMais_Click(object sender, EventArgs e)
         {
-            memoria();
-            memoResult1 += memoResult;
+            memoOperacao('+');
         }
         private void btnMMenos_Click(object sender, EventArgs e)
         {
+            memoOperacao('-');
+        }
+        private void memoOperacao(char x)
+        {
             memoria();
-            memoResult1 -= memoResult;
+            lblVisor.Text = Convert.ToString(memoResult);
+            memoResult1 = x == '+' ? memoResult1 + memoResult : memoResult1 - memoResult;
+            memoResult = memoResult1;
         }
 
-        private void keypressNumeros(object sender, KeyPressEventArgs e)
+        private void btnDesliga_Click(object sender, EventArgs e)
         {
-            int botao;
+            lblVisor.TextAlign = ContentAlignment.MiddleLeft;
+            lblVisor.Text = "DESLIGANDO";
+            Application.DoEvents();
+            System.Threading.Thread.Sleep(500);
+            lblVisor.Text = "DESLIGANDO.";
+            Application.DoEvents();
+            System.Threading.Thread.Sleep(500);
+            lblVisor.Text = "DESLIGANDO..";
+            Application.DoEvents();
+            System.Threading.Thread.Sleep(500);
+            lblVisor.Text = "DESLIGANDO...";
+            Application.DoEvents();
+            System.Threading.Thread.Sleep(500);
+            lblVisor.Text = "DESLIGANDO....";
+            Application.DoEvents();
+            System.Threading.Thread.Sleep(500);
+            lblVisor.Text = "DESLIGANDO.....";
+            Application.DoEvents();
+            System.Threading.Thread.Sleep(500);
+            lblVisor.TextAlign = ContentAlignment.MiddleCenter;
+            lblVisor.Text = "CLUSTERS v 1.0.0";
+            Application.DoEvents();
+            System.Threading.Thread.Sleep(2000);
+            frmCalculadora.ActiveForm.Close();
 
-            botao = e.KeyChar;
-            switch (botao)
-            {
-                case 42:
-                    pressBotaoFuncao('*');
-                    break;
-                case 43:
-                    pressBotaoFuncao('+');
-                    break;
-                case 45:
-                    pressBotaoFuncao('-');
-                    break;
-                case 46:
-                    pressBotaoFuncao('/');
-                    break;
-                case 48:
-                    pressBotaoNumero('0');
-                    break;
-                case 49:
-                    pressBotaoNumero('1');
-                    break;
-                case 50:
-                    pressBotaoNumero('2');
-                    break;
-                case 51:
-                    pressBotaoNumero('3');
-                    break;
-                case 52:
-                    pressBotaoNumero('4');
-                    break;
-                case 53:
-                    pressBotaoNumero('5');
-                    break;
-                case 54:
-                    pressBotaoNumero('6');
-                    break;
-                case 55:
-                    pressBotaoNumero('7');
-                    break;
-                case 56:
-                    pressBotaoNumero('8');
-                    break;
-                case 57:
-                    pressBotaoNumero('9');
-                    break;
-            }
         }
     }
 }
