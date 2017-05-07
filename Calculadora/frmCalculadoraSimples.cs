@@ -327,14 +327,14 @@ namespace Calculadora
         // Funções da memória.
         public void memoria()
         {
-            lblMemoria.Text = "M";
+            lblMemoria.Visible = true;
             memoResult = double.Parse(lblVisor.Text);
         }
         private void btnMLimpa_Click(object sender, EventArgs e)
         {
             memoResult = 0;
             memoResult1 = 0;
-            lblMemoria.Text = null;
+            lblMemoria.Visible = false;
         }
         private void btnMMostra_Click(object sender, EventArgs e)
         {
@@ -358,31 +358,26 @@ namespace Calculadora
 
         private void btnDesliga_Click(object sender, EventArgs e)
         {
+            lblMemoria.Visible = false;
             lblVisor.TextAlign = ContentAlignment.MiddleLeft;
-            lblVisor.Text = "DESLIGANDO";
-            Application.DoEvents();
-            System.Threading.Thread.Sleep(500);
-            lblVisor.Text = "DESLIGANDO.";
-            Application.DoEvents();
-            System.Threading.Thread.Sleep(500);
-            lblVisor.Text = "DESLIGANDO..";
-            Application.DoEvents();
-            System.Threading.Thread.Sleep(500);
-            lblVisor.Text = "DESLIGANDO...";
-            Application.DoEvents();
-            System.Threading.Thread.Sleep(500);
-            lblVisor.Text = "DESLIGANDO....";
-            Application.DoEvents();
-            System.Threading.Thread.Sleep(500);
-            lblVisor.Text = "DESLIGANDO.....";
-            Application.DoEvents();
-            System.Threading.Thread.Sleep(500);
+            lbl_loading.Visible = true;
+            lbl_loading.Text = null;
+
+            for (int i = 0; i <=  80; i++)
+            {
+                Application.DoEvents();
+                System.Threading.Thread.Sleep(20);
+                lblVisor.Text = "DESLIGANDO";
+
+                lbl_loading.Text += "|";
+            }
+
+            lbl_loading.Visible = false;
             lblVisor.TextAlign = ContentAlignment.MiddleCenter;
-            lblVisor.Text = "CLUSTERS v 1.0.0";
+            lblVisor.Text = "CLUSTERS";
             Application.DoEvents();
             System.Threading.Thread.Sleep(2000);
             frmCalculadora.ActiveForm.Close();
-
         }
     }
 }

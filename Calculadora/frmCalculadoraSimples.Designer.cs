@@ -60,6 +60,7 @@
             this.btnXRaizY2 = new System.Windows.Forms.Button();
             this.btnXRaizY = new System.Windows.Forms.Button();
             this.btnDesliga = new System.Windows.Forms.Button();
+            this.lbl_loading = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblVisor
@@ -69,6 +70,7 @@
             this.lblVisor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lblVisor.Location = new System.Drawing.Point(10, 9);
             this.lblVisor.Name = "lblVisor";
+            this.lblVisor.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.lblVisor.Size = new System.Drawing.Size(199, 54);
             this.lblVisor.TabIndex = 0;
             this.lblVisor.Text = "0";
@@ -376,11 +378,13 @@
             // 
             this.lblMemoria.BackColor = System.Drawing.Color.Transparent;
             this.lblMemoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMemoria.Location = new System.Drawing.Point(12, 44);
+            this.lblMemoria.Location = new System.Drawing.Point(12, 49);
             this.lblMemoria.Name = "lblMemoria";
-            this.lblMemoria.Size = new System.Drawing.Size(19, 11);
+            this.lblMemoria.Size = new System.Drawing.Size(14, 13);
             this.lblMemoria.TabIndex = 0;
+            this.lblMemoria.Text = "M";
             this.lblMemoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblMemoria.Visible = false;
             // 
             // btnXRaizY2
             // 
@@ -412,12 +416,25 @@
             this.btnDesliga.UseVisualStyleBackColor = true;
             this.btnDesliga.Click += new System.EventHandler(this.btnDesliga_Click);
             // 
+            // lbl_loading
+            // 
+            this.lbl_loading.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lbl_loading.Location = new System.Drawing.Point(11, 46);
+            this.lbl_loading.Name = "lbl_loading";
+            this.lbl_loading.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.lbl_loading.Size = new System.Drawing.Size(196, 16);
+            this.lbl_loading.TabIndex = 29;
+            this.lbl_loading.Text = "[][][][][][][][][][][][][][][][][][][][][][][][][][][][][]";
+            this.lbl_loading.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_loading.Visible = false;
+            // 
             // frmCalculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(221, 288);
+            this.Controls.Add(this.lbl_loading);
             this.Controls.Add(this.btnDesliga);
             this.Controls.Add(this.btnFatorial);
             this.Controls.Add(this.btnSoma);
@@ -493,6 +510,7 @@
         private System.Windows.Forms.Button btnXRaizY;
         private System.Windows.Forms.Button btnXRaizY2;
         private System.Windows.Forms.Button btnDesliga;
+        private System.Windows.Forms.Label lbl_loading;
     }
 }
 
